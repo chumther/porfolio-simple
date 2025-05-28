@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
     if (user) {
-
+        $('body').addClass('fade-in');
     } else {
         const a = document.createElement('a');
         a.style.display = 'none';

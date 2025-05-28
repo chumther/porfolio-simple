@@ -26,22 +26,22 @@ onAuthStateChanged(auth, (user) => {
         document.body.appendChild(a);
         a.click();
     } else {
-        
+        $('body').addClass('fade-in');
     }
 });
 
-$('#login').click(function() {
-  var pass = $('#password').val();
-  setPersistence(auth,browserSessionPersistence)
-  signInWithEmailAndPassword(auth, "alejandro.chum@gmail.com", pass)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        var messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
-        messageModal.show();
-    });
+$('#login').click(function () {
+    var pass = $('#password').val();
+    setPersistence(auth, browserSessionPersistence)
+    signInWithEmailAndPassword(auth, "alejandro.chum@gmail.com", pass)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            var messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+            messageModal.show();
+        });
 });
