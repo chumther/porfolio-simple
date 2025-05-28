@@ -37,11 +37,11 @@ $('#login').click(function() {
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log("Login successful");
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error("Error during login:", errorCode, errorMessage);
+        var messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+        messageModal.show();
     });
 });
